@@ -7,10 +7,8 @@ deploy:
 build:
   local:
     push: false
-  googleCloudBuild:
-    projectId: ticketing-dev-leogsouza
   artifacts:
-    - image: us.gcr.io/ticketing-dev-leogsouza/auth
+    - image: leogsouza/auth
       context: auth
       docker:
         dockerfile: Dockerfile
