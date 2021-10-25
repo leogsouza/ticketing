@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-deploy
+  annotations:
+    keel.sh/policy: force     # update policy (available: patch, minor, major, all, force)
+    keel.sh/trigger: poll  
 spec:
   replicas: 1
   selector:
@@ -15,6 +18,7 @@ spec:
       containers:
         - name: client
           image: leogsouza/ticketing-client
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
